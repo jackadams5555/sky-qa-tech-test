@@ -1,6 +1,6 @@
 <?php
 
-class Calculator implements iCalculator {
+class Calculator implements iCalculator, iScientificCalculator {
 
     protected $stack;
     protected $op;
@@ -21,7 +21,26 @@ class Calculator implements iCalculator {
     public function divide($a, $b) {
         return ($a / $b);
     }
+	
+    public function cubeRoot($a) {
+	    return ($a ** (1/3));
+	}
+	
+	public function factorial($a) {
+	    $factorial = 1
+	    for($x=$a; $x>=1; $x--) {
+		$factorial = $factorial *$x;
+	    }
+	     return ($factorial);
+	}
 
+	 public function pressFactorial() {
+        if(count($this->stack) > 1) {
+            $this->evaluateStack();
+        }
+        $this->op = "!";
+    }
+	
     public function pressNumber($number) {
         $this->stack[] = $number;
     }
