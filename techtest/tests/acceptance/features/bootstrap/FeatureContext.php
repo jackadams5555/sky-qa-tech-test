@@ -32,6 +32,20 @@ class FeatureContext extends BehatContext {
         $this->calculator->pressMultiply();
     }
 
+	/**
+	 * @When /^I hit "add"$/
+	 */
+	public function iHitAdd() {
+	    $this->calculator->pressAdd();
+	}
+	
+	/**
+	 * @When /^I hit "subtract"$/
+	 */
+	public function iHitSubtract() {
+	    $this->calculator->pressSubtract();
+	}
+	
     /**
      * @When /^I hit "divide"$/
      */
